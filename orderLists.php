@@ -1,4 +1,5 @@
 <?php
+include_once ("conn.php");
 include_once ("header.php");
 ?>
 
@@ -17,32 +18,27 @@ include_once ("header.php");
                     </tr>
                 </thead>
                 <tbody>
+                <?php
+                    $query= "SELECT * FROM order_list";
+
+                    $result = mysqli_query($conn,$query);
+
+                    foreach($result as $row) {
+
+                ?> 
                     <tr>
-                        <th scope="row">Thai food</th>
-                        <td>Big plat</td>
-                        <td>2</td>
-                        <td>12$</td>
-                        <td> <button class="btn btn-danger btn-sm">cancel</button> </td>
+                        <td scope="row"><?php echo $row['food_name']?></td>
+                        <td><?php echo $row['food_size']?></td>
+                        <td><?php echo $row['food_quantity']?></td>
+                        <td><?php echo $row['food_price']?></td>
+                        <td>  <a href="cancelPreOrder.php?id=<?php echo $row['id'];?>" class="btn btn-danger btn-sm">Cancel</a> </td> 
                     </tr>
-                    <tr>
-                    <th scope="row">Thai food</th>
-                        <td>Big plat</td>
-                        <td>2</td>
-                        <td>12$</td>
-                        <td> <button class="btn btn-danger btn-sm">cancel</button> </td>
-                    </tr>
-                    <tr>
-                    <th scope="row">Thai food</th>
-                        <td>Big plat</td>
-                        <td>2</td>
-                        <td>12$</td>
-                        <td> <button class="btn btn-danger btn-sm">cancel</button> </td>
-                    </tr>
+                <?php } ?>
                 </tbody>
             </table>
         </div>
         <div class="row mt-4">
-            <button class="btn btn-primary btn-sm">Send Order</button>
+            <a href="sendOrder.php" class="btn btn-primary btn-sm">Send Order</a> 
         </div>
     </div>
 </div>

@@ -34,11 +34,8 @@
               <ul class="nav navbar-nav navbar-right">
               <li><a class="nav-link text-white" href="index.php">Home</a></li>
               <li><a class="nav-link text-white" href="orderLists.php">Order Lists</a></li>
-              <li><a class="nav-link text-white" href="addfood.php">Add food </a></li>
-              <li><a class="nav-link text-white" href="addFoodList.php">All food list</a></li>
               <li><a class="nav-link text-white" href="about.php">About Us</a></li>
               <li><a class="nav-link text-white" href="contact.php">Contact</a></li>
-              <li><a class="nav-link text-white" href="login.php">Login(not show)</a></li>
               </ul>
           </div><!--/.navbar-collapse -->
         </div>
