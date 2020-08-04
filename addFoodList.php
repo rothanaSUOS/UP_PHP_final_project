@@ -1,4 +1,5 @@
 <?php
+include_once ("conn.php");
 include_once ("adminHeader.php");
 ?>
 
@@ -6,6 +7,7 @@ include_once ("adminHeader.php");
     <div class="container">
         <h2 class="text-center text-second">List all food</h2>
         <div class="row bg-white">
+            
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -16,41 +18,42 @@ include_once ("adminHeader.php");
                     </tr>
                 </thead>
                 <tbody>
+                <?php
+                    $query= "SELECT * FROM all_food_list";
+                    $result = mysqli_query($conn,$query);
+                    foreach($result as $row) {
+                ?> 
                     <tr>
-                        <th scope="row">Thai food</th>
-                        <td>HOlle this is description</td>
-                        <td>12$</td>
+                        <td><?php echo $row['id']?></td>
+                        <td scope="row"><?php echo $row['food_name']?></td>
+                        <td><?php echo $row['food_desc']?></td>
+                        <td><?php echo $row['food_price']?>$</td>
                         <td> 
-                            <button class="btn btn-danger btn-sm">Delete</button> 
-                            <button class="btn btn-info btn-sm">Edit</button> 
-                            <button class="btn btn-primary btn-sm">Repost</button> 
+                            <a href="delete.php?id=<?php echo $row['id'];?>" class="btn btn-danger btn-sm">Delete</a> 
+                            <a href="update.php?id=<?php echo $row['id'];?>" class="btn btn-success btn-sm">Update</a>
+                            <a href="repost.php?id=<?php echo $row['id'];?>" class="btn btn-primary btn-sm">Repost</a>
                         </td>
                     </tr>
-                    <tr>
-                        <th scope="row">Thai food</th>
-                        <td>HOlle this is description</td>
-                        <td>12$</td>
-                        <td> 
-                            <button class="btn btn-danger btn-sm">Delete</button> 
-                            <button class="btn btn-info btn-sm">Edit</button> 
-                            <button class="btn btn-primary btn-sm">Repost</button> 
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Thai food</th>
-                        <td>Hello this is description</td>
-                        <td>12$</td>
-                        <td> 
-                            <button class="btn btn-danger btn-sm">Delete</button> 
-                            <button class="btn btn-info btn-sm">Edit</button> 
-                            <button class="btn btn-primary btn-sm">Repost</button> 
-                        </td>
-                    </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+<?php 
+    if(isset($_POST['btnDelete'])){
+        $id = $_GET['id'];
+        $query = "DELETE FROM all_food_list WHERE id = $id";
+
+        $result = mysqli_query($conn, $query);
+
+        if ($result) {
+            echo "Delete success";
+        }
+        echo "cannot delete";
+    };
+?>
+
 <style>
     .table{
         margin-bottom: 20% !important;

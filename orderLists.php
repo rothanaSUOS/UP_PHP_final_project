@@ -1,10 +1,11 @@
 <?php
+include_once ("conn.php");
 include_once ("header.php");
 ?>
 
 <div class="container-float bg-info">
     <div class="container">
-        <h2 class="text-center text-second">Add food to all food list</h2>
+        <h2 class="text-center text-white">Order List</h2>
         <div class="row bg-white">
             <table class="table table-striped">
                 <thead>
@@ -17,33 +18,29 @@ include_once ("header.php");
                     </tr>
                 </thead>
                 <tbody>
+                <?php
+                    $query= "SELECT * FROM order_list";
+
+                    $result = mysqli_query($conn,$query);
+
+                    foreach($result as $row) {
+
+                ?> 
                     <tr>
-                        <th scope="row">Thai food</th>
-                        <td>Big plat</td>
-                        <td>2</td>
-                        <td>12$</td>
-                        <td> <button class="btn btn-danger btn-sm">cancel</button> </td>
+                        <td scope="row"><?php echo $row['food_name']?></td>
+                        <td><?php echo $row['food_size']?></td>
+                        <td><?php echo $row['food_quantity']?></td>
+                        <td><?php echo $row['food_price']?></td>
+                        <td>  <a href="cancelPreOrder.php?id=<?php echo $row['id'];?>" class="btn btn-danger btn-sm">Cancel</a> </td> 
                     </tr>
-                    <tr>
-                    <th scope="row">Thai food</th>
-                        <td>Big plat</td>
-                        <td>2</td>
-                        <td>12$</td>
-                        <td> <button class="btn btn-danger btn-sm">cancel</button> </td>
-                    </tr>
-                    <tr>
-                    <th scope="row">Thai food</th>
-                        <td>Big plat</td>
-                        <td>2</td>
-                        <td>12$</td>
-                        <td> <button class="btn btn-danger btn-sm">cancel</button> </td>
-                    </tr>
+                <?php } ?>
                 </tbody>
             </table>
         </div>
-        <div class="row mt-4">
-            <button class="btn btn-primary btn-sm">Send Order</button>
+        <div class="row mt-4 send-btn">
+            <a href="sendOrder.php" class="btn btn-warning">Send Order</a> 
         </div>
+        <br><br><br><br><br><br><br><br><br><br>
     </div>
 </div>
 
@@ -54,9 +51,14 @@ include_once ("header.php");
         width: 330px;
         height: 200px;
     } */
+    .container{
+        height: 1000px !important;
+    }
+    .send-btn{
+        margin-left: 90%;
+    }
     
 </style>
-<br><br><br><br><br><br><br>
 <?php
 include_once ("footer.php");
 ?>

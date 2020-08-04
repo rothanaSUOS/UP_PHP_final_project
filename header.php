@@ -8,17 +8,30 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="css/concise.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/masthead.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <style>
         body {
             padding-bottom: 20px;
         }
         .navbar {
-            margin-bottom: 0px;
-            border-radius: 0;
+          margin-bottom: 0px;
+          border-radius: 0;
+          overflow: hidden;
+          background-color: #333;
+          position: fixed;
+          z-index: 100;
+          top: 0;
+          width: 100%;
+        }
+        .carousel-inner img {
+          width: 100%;
+          height: 100%;
         }
     </style>
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <nav class="navbar navbar-expand-lg navbar-light fix bg-info">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -27,20 +40,18 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="">
+            <a class="navbar-brand text-white" href="#">
               Food Piggy</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav navbar-right">
               <li><a class="nav-link text-white" href="index.php">Home</a></li>
               <li><a class="nav-link text-white" href="orderLists.php">Order Lists</a></li>
-              <li><a class="nav-link text-white" href="addfood.php">Add food </a></li>
-              <li><a class="nav-link text-white" href="addFoodList.php">All food list</a></li>
               <li><a class="nav-link text-white" href="about.php">About Us</a></li>
               <li><a class="nav-link text-white" href="contact.php">Contact</a></li>
-              <li><a class="nav-link text-white" href="login.php">Login(not show)</a></li>
-              </ul>
-          </div><!--/.navbar-collapse -->
+            </ul>
+
+            </div><!--/.navbar-collapse -->
         </div>
     </nav>
   </head>

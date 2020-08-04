@@ -11,7 +11,13 @@
             .navbar {
                 margin-bottom: 0px;
                 border-radius: 0;
-            }
+                overflow: hidden;
+                background-color: #333;
+                position: fixed;
+                z-index: 100;
+                top: 0;
+                width: 100%;
+                }
             .footer{
                 
                 margin-bottom: 0px;
@@ -56,4 +62,5 @@
                 </div>
             </nav>
         </div>
+        <br><br><br><br><br>
         
