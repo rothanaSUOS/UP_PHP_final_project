@@ -3,9 +3,10 @@ include_once ("conn.php");
 include_once ("header.php");
 ?>
 
-<div class="container-float bg-info">
+<div class="container-float">
     <div class="container">
-        <h2 class="text-center text-white">Order List</h2>
+        <h2 class="text-center text-second">Add food to all food list</h2>
+        <br>
         <div class="row bg-white">
             <table class="table table-striped">
                 <thead>
@@ -37,12 +38,16 @@ include_once ("header.php");
                 </tbody>
             </table>
         </div>
-        <div class="row mt-4 send-btn">
-            <a href="sendOrder.php" class="btn btn-warning">Send Order</a> 
+        <div class="row mt-4">
+            <a href="sendOrder.php" class="btn btn-primary btn-sm">Send Order</a> 
         </div>
-        <br><br><br><br><br><br><br><br><br><br>
     </div>
 </div>
+
+</body>
+</html>
+
+
 
 <style>
     .food-list-img{
@@ -51,14 +56,13 @@ include_once ("header.php");
         width: 330px;
         height: 200px;
     } */
-    .container{
-        height: 1000px !important;
-    }
-    .send-btn{
-        margin-left: 90%;
+    .button-sender{
+        margin-right:500px;
+        
     }
     
 </style>
+<br><br><br><br><br><br><br>
 <?php
 include_once ("footer.php");
 ?>
